@@ -11,7 +11,7 @@ resource "aws_route53_record" "this" {
 }
 
 resource "aws_s3_bucket" "this_redirect" {
-  bucket = replace("${var.domain}-redirect", ".", "_")
+  bucket = replace("${var.domain}-redirect", "_", "-")
 
   tags = {
     Name    = "${local.fqdn} Redirect"
